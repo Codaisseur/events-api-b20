@@ -2,6 +2,7 @@ import React from 'react'
 import {loadEvents} from '../actions/events'
 import {connect} from 'react-redux'
 import EventsList from './EventsList'
+import CreateEventFormContainer from './CreateEventFormContainer'
 
 class EventsListContainer extends React.PureComponent {
   componentDidMount() {
@@ -11,7 +12,12 @@ class EventsListContainer extends React.PureComponent {
   render() {
     const { events } = this.props
     if (!events) return <p>Loading...</p>
-    return <EventsList events={events} />
+    return (
+      <div>
+        <CreateEventFormContainer />
+        <EventsList events={events} />
+      </div>
+    )
   }
 }
 
